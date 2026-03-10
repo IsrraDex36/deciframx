@@ -1,26 +1,174 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius);
+  --radius-2xl: var(--radius);
+  --radius-3xl: var(--radius);
+  --radius-4xl: var(--radius);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ============================================
+   LIGHT THEME — Minimalist Monochrome
+   ============================================ */
+:root {
+  color-scheme: light;
+
+  /* Core palette */
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.15 0 0);
+
+  /* Cards with subtle warmth */
+  --card: oklch(0.99 0 0);
+  --card-foreground: oklch(0.15 0 0);
+  --popover: oklch(0.99 0 0);
+  --popover-foreground: oklch(0.15 0 0);
+
+  /* Primary: Jet Black */
+  --primary: oklch(0.15 0 0);
+  --primary-foreground: oklch(0.99 0 0);
+
+  /* Secondary: Light Gray */
+  --secondary: oklch(0.96 0 0);
+  --secondary-foreground: oklch(0.15 0 0);
+
+  /* Muted: Soft Gray */
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+
+  /* Accent: Dark Gray */
+  --accent: oklch(0.96 0 0);
+  --accent-foreground: oklch(0.15 0 0);
+
+  --destructive: oklch(0.5 0.15 27);
+  --border: oklch(0.92 0 0);
+  --input: oklch(0.92 0 0);
+  --ring: oklch(0.15 0 0);
+  --radius: 0.25rem; /* Standard sharp/minimalist radius */
+
+  /* ── Segment decode colors (Soft Neutrals) ── */
+  --segment-name: oklch(0.94 0 0);
+  --segment-date: oklch(0.92 0 0);
+  --segment-sex: oklch(0.9 0 0);
+  --segment-state: oklch(0.88 0 0);
+  --segment-consonants: oklch(0.86 0 0);
+  --segment-homoclave: oklch(0.84 0 0);
+  --segment-check: oklch(0.82 0 0);
+
+  /* ── Gradient accents (Removed in minimalist) ── */
+  --gradient-hero: none;
+}
+
+/* ============================================
+   DARK THEME — Minimalist Dark
+   ============================================ */
+.dark {
+  color-scheme: dark;
+
+  --background: oklch(0.1 0 0);
+  --foreground: oklch(0.96 0 0);
+
+  --card: oklch(0.1 0 0);
+  --card-foreground: oklch(0.96 0 0);
+  --popover: oklch(0.1 0 0);
+  --popover-foreground: oklch(0.96 0 0);
+
+  /* Primary: White */
+  --primary: oklch(0.96 0 0);
+  --primary-foreground: oklch(0.1 0 0);
+
+  --secondary: oklch(0.15 0 0);
+  --secondary-foreground: oklch(0.96 0 0);
+
+  --muted: oklch(0.15 0 0);
+  --muted-foreground: oklch(0.6 0 0);
+
+  --accent: oklch(0.15 0 0);
+  --accent-foreground: oklch(0.96 0 0);
+
+  --destructive: oklch(0.6 0.2 25);
+  --border: oklch(0.2 0 0);
+  --input: oklch(0.2 0 0);
+  --ring: oklch(0.96 0 0);
+
+  /* ── Segment decode colors (Dark Neutrals) ── */
+  --segment-name: oklch(0.18 0 0);
+  --segment-date: oklch(0.2 0 0);
+  --segment-sex: oklch(0.22 0 0);
+  --segment-state: oklch(0.24 0 0);
+  --segment-consonants: oklch(0.26 0 0);
+  --segment-homoclave: oklch(0.28 0 0);
+  --segment-check: oklch(0.3 0 0);
+
+  --gradient-hero: none;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================
+   ANIMATIONS (Stripped back for minimalist feel)
+   ============================================ */
+@keyframes slide-up-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up-fade 0.3s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

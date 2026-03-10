@@ -1,65 +1,88 @@
-import Image from "next/image";
+import Image from "next/image"
+import { Lock, Zap, Heart } from "lucide-react"
+import { DecoderInput } from "@/components/decoder-input"
+import { InfoSection } from "@/components/info-section"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <div className="relative min-h-screen selection:bg-primary/10">
+      {/* Skip to content link for a11y */}
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-background focus:text-foreground focus:ring-2 focus:ring-ring focus:rounded-sm border border-border"
+      >
+        Saltar al contenido principal
+      </a>
+
+      {/* Top Header Row */}
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-8 z-50">
+        <ThemeToggle />
+      </div>
+
+      <main id="main-content" className="max-w-4xl mx-auto px-4 py-16 sm:py-24 animate-slide-up">
+        {/* Hero Section */}
+        <header className="mb-16 sm:mb-20">
+          <div className="mb-8 flex items-center gap-3">
+            <Image 
+              src="/logo.png" 
+              alt="DescífraMX Logo" 
+              width={48} 
+              height={48} 
+              className="rounded-md object-contain bg-white p-1"
+              priority
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            <span className="text-xl sm:text-2xl font-bold tracking-tighter text-foreground">
+              DescífraMX.
+            </span>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium text-foreground mb-6 tracking-tight leading-[1.1]">
+            Comprende la estructura de tu identidad.
+          </h1>
+          
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl font-light leading-relaxed mb-8">
+            Un diseño transparente para descifrar cada carácter de tu CURP o RFC. Todo se procesa localmente en tu navegador.
+          </p>
+          
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-muted/50 px-3 py-1.5 text-xs font-medium text-foreground border border-border">
+              <Lock className="w-3.5 h-3.5" /> Tu información nunca sale del navegador
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-muted/50 px-3 py-1.5 text-xs font-medium text-foreground border border-border">
+              <Zap className="w-3.5 h-3.5" /> Sin registro
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-muted/50 px-3 py-1.5 text-xs font-medium text-foreground border border-border">
+              <Heart className="w-3.5 h-3.5 text-green-600 dark:text-green-500" /> Gratis
+            </span>
+          </div>
+        </header>
+
+        {/* Decoder Section */}
+        <section className="mb-20 sm:mb-32 relative z-10" aria-label="Decodificador principal">
+          <DecoderInput />
+        </section>
+
+        {/* Info Section */}
+        <InfoSection />
+
+        {/* Footer */}
+        <footer className="mt-20 sm:mt-32 py-10 text-sm text-muted-foreground border-t border-border">
+          <div className="flex flex-col sm:flex-row justify-between items-start gap-6">
+            <div className="space-y-3">
+              <p className="text-foreground font-medium">Hecho con 💚 en México</p>
+              <p className="max-w-md text-xs leading-relaxed">
+                DescífraMX no está afiliado al SAT, RENAPO ni ninguna entidad gubernamental mexicana. Es una herramienta 100% educativa y sin telemetría.
+              </p>
+            </div>
+            <div className="flex gap-4">
+              <a href="/privacidad" className="hover:text-foreground transition-colors underline underline-offset-4">
+                Aviso de Privacidad
+              </a>
+            </div>
+          </div>
+        </footer>
       </main>
     </div>
-  );
+  )
 }
