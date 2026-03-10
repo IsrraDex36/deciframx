@@ -25,6 +25,9 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-card-alt: var(--card-alt);
+  --color-icon-active: var(--icon-active);
+  --color-icon-inactive: var(--icon-inactive);
   --radius-sm: var(--radius);
   --radius-md: var(--radius);
   --radius-lg: var(--radius);
@@ -35,96 +38,98 @@
 }
 
 /* ============================================
-   LIGHT THEME — Minimalist Monochrome
+   LIGHT THEME — Paleta DescífraMX
+   Fondo: #F1EFEC | Texto: #030303 | Botón: #123458 | Cards: #FFFFFF / #D4C9BE
    ============================================ */
 :root {
   color-scheme: light;
 
-  /* Core palette */
-  --background: oklch(0.99 0 0);
-  --foreground: oklch(0.15 0 0);
+  /* Fondo general y texto principal */
+  --background: #F1EFEC;
+  --foreground: #030303;
 
-  /* Cards with subtle warmth */
-  --card: oklch(0.99 0 0);
-  --card-foreground: oklch(0.15 0 0);
-  --popover: oklch(0.99 0 0);
-  --popover-foreground: oklch(0.15 0 0);
+  /* Tarjetas: blanco puro y versión translúcida beige */
+  --card: #FFFFFF;
+  --card-foreground: #030303;
+  --card-alt: rgba(212, 201, 190, 0.6);
+  --popover: #FFFFFF;
+  --popover-foreground: #030303;
 
-  /* Primary: Jet Black */
-  --primary: oklch(0.15 0 0);
-  --primary-foreground: oklch(0.99 0 0);
+  /* Botón principal */
+  --primary: #123458;
+  --primary-foreground: #F1EFEC;
 
-  /* Secondary: Light Gray */
-  --secondary: oklch(0.96 0 0);
-  --secondary-foreground: oklch(0.15 0 0);
+  /* Secundario y muted (beige suave) */
+  --secondary: #D4C9BE;
+  --secondary-foreground: #030303;
+  --muted: #E8E4E0;
+  --muted-foreground: #5C534A;
 
-  /* Muted: Soft Gray */
-  --muted: oklch(0.96 0 0);
-  --muted-foreground: oklch(0.45 0 0);
+  /* Iconografía */
+  --icon-active: #123458;
+  --icon-inactive: #D4C9BE;
 
-  /* Accent: Dark Gray */
-  --accent: oklch(0.96 0 0);
-  --accent-foreground: oklch(0.15 0 0);
-
+  --accent: #E8E4E0;
+  --accent-foreground: #030303;
   --destructive: oklch(0.5 0.15 27);
-  --border: oklch(0.92 0 0);
-  --input: oklch(0.92 0 0);
-  --ring: oklch(0.15 0 0);
-  --radius: 0.25rem; /* Standard sharp/minimalist radius */
+  --border: #D4C9BE;
+  --input: #E8E4E0;
+  --ring: #123458;
+  --radius: 0.25rem;
 
-  /* ── Segment decode colors (Soft Neutrals) ── */
-  --segment-name: oklch(0.94 0 0);
-  --segment-date: oklch(0.92 0 0);
-  --segment-sex: oklch(0.9 0 0);
-  --segment-state: oklch(0.88 0 0);
-  --segment-consonants: oklch(0.86 0 0);
-  --segment-homoclave: oklch(0.84 0 0);
-  --segment-check: oklch(0.82 0 0);
+  /* Segment decode colors (tonos suaves de la paleta) */
+  --segment-name: #E8E4E0;
+  --segment-date: #E2DDD8;
+  --segment-sex: #DCD6D0;
+  --segment-state: #D4C9BE;
+  --segment-consonants: #CEC3B8;
+  --segment-homoclave: #C8BCB0;
+  --segment-check: #C2B5A8;
 
-  /* ── Gradient accents (Removed in minimalist) ── */
   --gradient-hero: none;
 }
 
 /* ============================================
-   DARK THEME — Minimalist Dark
+   DARK THEME — Misma paleta, tonos oscuros
    ============================================ */
 .dark {
   color-scheme: dark;
 
-  --background: oklch(0.1 0 0);
-  --foreground: oklch(0.96 0 0);
+  --background: #1A1918;
+  --foreground: #F1EFEC;
 
-  --card: oklch(0.1 0 0);
-  --card-foreground: oklch(0.96 0 0);
-  --popover: oklch(0.1 0 0);
-  --popover-foreground: oklch(0.96 0 0);
+  --card: #252322;
+  --card-foreground: #F1EFEC;
+  --card-alt: rgba(49, 52, 88, 0.25);
+  --popover: #252322;
+  --popover-foreground: #F1EFEC;
 
-  /* Primary: White */
-  --primary: oklch(0.96 0 0);
-  --primary-foreground: oklch(0.1 0 0);
+  --primary: #4A6A9A;
+  --primary-foreground: #F1EFEC;
 
-  --secondary: oklch(0.15 0 0);
-  --secondary-foreground: oklch(0.96 0 0);
+  --secondary: #2D2B29;
+  --secondary-foreground: #F1EFEC;
+  --muted: #2D2B29;
+  --muted-foreground: #B8B0A8;
 
-  --muted: oklch(0.15 0 0);
-  --muted-foreground: oklch(0.6 0 0);
+  --icon-active: #6B8FBD;
+  --icon-inactive: #5C534A;
 
-  --accent: oklch(0.15 0 0);
-  --accent-foreground: oklch(0.96 0 0);
+  --accent: #2D2B29;
+  --accent-foreground: #F1EFEC;
 
   --destructive: oklch(0.6 0.2 25);
-  --border: oklch(0.2 0 0);
-  --input: oklch(0.2 0 0);
-  --ring: oklch(0.96 0 0);
+  --border: #3D3B39;
+  --input: #2D2B29;
+  --ring: #4A6A9A;
 
-  /* ── Segment decode colors (Dark Neutrals) ── */
-  --segment-name: oklch(0.18 0 0);
-  --segment-date: oklch(0.2 0 0);
-  --segment-sex: oklch(0.22 0 0);
-  --segment-state: oklch(0.24 0 0);
-  --segment-consonants: oklch(0.26 0 0);
-  --segment-homoclave: oklch(0.28 0 0);
-  --segment-check: oklch(0.3 0 0);
+  --segment-name: #2D2B29;
+  --segment-date: #353331;
+  --segment-sex: #3D3B39;
+  --segment-state: #454340;
+  --segment-consonants: #4D4B48;
+  --segment-homoclave: #555350;
+  --segment-check: #5D5B58;
 
   --gradient-hero: none;
 }
@@ -161,6 +166,17 @@
 
 .animate-slide-up {
   animation: slide-up-fade 0.3s ease-out both;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

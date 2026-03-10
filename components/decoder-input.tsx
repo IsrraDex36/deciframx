@@ -37,7 +37,7 @@ export function DecoderInput() {
     <div className="w-full space-y-10">
       {/* Document Type Toggle */}
       <div className="flex justify-center" role="tablist" aria-label="Tipo de documento">
-        <div className="inline-flex rounded-md border border-border bg-background p-1">
+        <div className="inline-flex rounded-md border border-border bg-card p-1 shadow-sm">
           <button
             role="tab"
             aria-selected={docType === "curp"}
@@ -50,7 +50,7 @@ export function DecoderInput() {
               "px-8 py-2.5 rounded-sm text-sm font-medium transition-all duration-200",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
               docType === "curp"
-                ? "bg-foreground text-background shadow-sm"
+                ? "bg-primary text-primary-foreground shadow-sm"
                 : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
             )}
           >
@@ -68,7 +68,7 @@ export function DecoderInput() {
               "px-8 py-2.5 rounded-sm text-sm font-medium transition-all duration-200",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
               docType === "rfc"
-                ? "bg-foreground text-background shadow-sm"
+                ? "bg-primary text-primary-foreground shadow-sm"
                 : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
             )}
           >
@@ -145,7 +145,7 @@ export function DecoderInput() {
 
       {/* Decoder Display */}
       {value.length > 0 ? (
-        <div id="capture-zone" className="space-y-8 bg-background p-2 sm:p-6 -mx-2 sm:-mx-6 rounded-2xl">
+        <div id="capture-zone" className="space-y-8 bg-card p-2 sm:p-6 -mx-2 sm:-mx-6 rounded-2xl">
           <DecoderDisplay
             value={value}
             segments={decoded.segments}

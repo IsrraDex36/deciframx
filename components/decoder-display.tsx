@@ -7,16 +7,16 @@ import { cn } from "@/lib/utils"
 import type { CURPSegment, RFCSegment } from "@/lib/curp-rfc-decoder"
 
 const iconMap: Record<string, React.ReactNode> = {
-  "user": <User className="w-5 h-5 text-foreground" />,
-  "users": <Users className="w-5 h-5 text-foreground" />,
-  "sparkles": <Sparkles className="w-5 h-5 text-foreground" />,
-  "calendar": <Calendar className="w-5 h-5 text-foreground" />,
-  "help-circle": <HelpCircle className="w-5 h-5 text-foreground" />,
-  "map-pin": <MapPin className="w-5 h-5 text-foreground" />,
-  "type": <Type className="w-5 h-5 text-foreground" />,
-  "hash": <Hash className="w-5 h-5 text-foreground" />,
-  "check-circle": <CheckCircle className="w-5 h-5 text-foreground" />,
-  "building": <Building className="w-5 h-5 text-foreground" />,
+  "user": <User className="w-5 h-5 text-icon-active" />,
+  "users": <Users className="w-5 h-5 text-icon-active" />,
+  "sparkles": <Sparkles className="w-5 h-5 text-icon-active" />,
+  "calendar": <Calendar className="w-5 h-5 text-icon-active" />,
+  "help-circle": <HelpCircle className="w-5 h-5 text-icon-inactive" />,
+  "map-pin": <MapPin className="w-5 h-5 text-icon-active" />,
+  "type": <Type className="w-5 h-5 text-icon-active" />,
+  "hash": <Hash className="w-5 h-5 text-icon-active" />,
+  "check-circle": <CheckCircle className="w-5 h-5 text-icon-active" />,
+  "building": <Building className="w-5 h-5 text-icon-active" />,
 }
 
 interface DecoderDisplayProps {
@@ -119,13 +119,13 @@ export function DecoderDisplay({ value, segments }: DecoderDisplayProps) {
               }
             }}
             className={cn(
-              "rounded-lg p-5 bg-background border border-border shadow-sm transition-colors",
+              "rounded-lg p-5 bg-card border border-border shadow-sm transition-colors",
               index < visibleSegments ? "opacity-100" : "opacity-50 grayscale"
             )}
           >
             <div className="flex items-start gap-4">
               <span
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-muted/30"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-border bg-card-alt"
                 style={{ borderColor: segment.color }}
               >
                 {iconMap[segment.icon] || <HelpCircle className="w-5 h-5 text-foreground" />}

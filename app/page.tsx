@@ -29,7 +29,7 @@ export default function Home() {
               alt="DescífraMX Logo" 
               width={48} 
               height={48} 
-              className="rounded-md object-contain bg-white p-1"
+              className="rounded-md object-contain dark:bg-white dark:p-1"
               priority
             />
             <span className="text-xl sm:text-2xl font-bold tracking-tighter text-foreground">
@@ -53,7 +53,7 @@ export default function Home() {
               <Zap className="w-3.5 h-3.5" /> Sin registro
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full bg-muted/50 px-3 py-1.5 text-xs font-medium text-foreground border border-border">
-              <Heart className="w-3.5 h-3.5 text-green-600 dark:text-green-500" /> Gratis
+              <Heart className="w-3.5 h-3.5  dark:text-green-500" /> Gratis
             </span>
           </div>
         </header>

@@ -42,7 +42,7 @@ export function SummaryCard({ decoded, type, value }: SummaryCardProps) {
       const isDark = document.documentElement.classList.contains("dark")
       const dataUrl = await toPng(element, {
         cacheBust: true,
-        backgroundColor: isDark ? "#09090b" : "#ffffff", // Match Tailwind's bg-background values
+        backgroundColor: isDark ? "#252322" : "#FFFFFF",
         style: {
           padding: "2rem",
           paddingBottom: "1.5rem",
@@ -91,7 +91,7 @@ export function SummaryCard({ decoded, type, value }: SummaryCardProps) {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ type: "spring", stiffness: 400, damping: 30, delay: 0.3 }}
         className={cn(
-          "rounded-lg p-6 transition-colors duration-300 border bg-background shadow-sm",
+          "rounded-lg p-6 transition-colors duration-300 border bg-card shadow-sm",
           decoded.isValid
             ? "border-foreground"
             : "border-muted-foreground"
@@ -100,11 +100,11 @@ export function SummaryCard({ decoded, type, value }: SummaryCardProps) {
         <div className="flex items-start justify-between gap-4">
           <div className="flex items-center gap-4">
             {decoded.isValid ? (
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-foreground bg-foreground text-background">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-primary bg-primary text-primary-foreground">
                 <Check className="h-5 w-5" />
               </div>
             ) : (
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-muted-foreground bg-muted text-muted-foreground">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-icon-inactive bg-muted text-icon-inactive">
                 <AlertTriangle className="h-5 w-5" />
               </div>
             )}
@@ -113,7 +113,7 @@ export function SummaryCard({ decoded, type, value }: SummaryCardProps) {
                 {decoded.isValid ? (
                   <span className="flex items-center gap-2">
                     {type === "curp" ? "¡CURP válido!" : "¡RFC válido!"}
-                    <Sparkles className="h-5 w-5 text-amber-500" />
+                    <Sparkles className="h-5 w-5 text-icon-active" />
                   </span>
                 ) : (
                   `${type === "curp" ? "CURP" : "RFC"} incompleto o con errores`

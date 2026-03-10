@@ -26,7 +26,7 @@ export function RetroGrid({
   lineColor = "#000000",
 }: RetroGridProps) {
   return (
-    <div className={cn("fixed inset-0 overflow-hidden bg-white", className)}>
+    <div className={cn("fixed inset-0 overflow-hidden bg-background", className)}>
       {/* Keyframe animation */}
       <style>{`
         @keyframes retro-grid-scroll {
@@ -56,7 +56,7 @@ export function RetroGrid({
         </div>
 
         {/* Horizon fade */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent to-90%" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent to-90%" />
       </div>
 
       {/* Content layer */}
