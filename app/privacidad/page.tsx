@@ -1,8 +1,19 @@
+import type { Metadata } from "next"
 import { Lock, FileText, ServerOff, EyeOff } from "lucide-react"
 
-export const metadata = {
-  title: "Privacidad | DescífraMX",
-  description: "Aviso de privacidad de DescífraMX. Tu información nunca sale de tu navegador.",
+const SITE_URL = "https://deciframx.vercel.app"
+
+export const metadata: Metadata = {
+  title: "Aviso de Privacidad",
+  description: "Aviso de privacidad de DescífraMX. Tu información nunca sale de tu navegador. Cero recolección de datos, procesamiento 100% local.",
+  openGraph: {
+    title: "Aviso de Privacidad | DescífraMX",
+    description: "Aviso de privacidad de DescífraMX. Cero recolección de datos, todo se procesa en tu navegador.",
+    url: `${SITE_URL}/privacidad`,
+    type: "website",
+  },
+  alternates: { canonical: `${SITE_URL}/privacidad` },
+  robots: { index: true, follow: true },
 }
 
 export default function Privacidad() {
