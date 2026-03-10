@@ -3,6 +3,7 @@ import { Lock, Zap, Heart } from "lucide-react"
 import { DecoderInput } from "@/components/decoder-input"
 import { InfoSection } from "@/components/info-section"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { PrivacyModal } from "@/components/privacy-modal"
 
 export default function Home() {
   return (
@@ -76,9 +77,7 @@ export default function Home() {
               </p>
             </div>
             <div className="flex gap-4">
-              <a href="/privacidad" className="hover:text-foreground transition-colors underline underline-offset-4">
-                Aviso de Privacidad
-              </a>
+              <PrivacyModal />
             </div>
           </div>
         </footer>

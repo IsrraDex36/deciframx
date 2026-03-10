@@ -168,6 +168,12 @@
   animation: slide-up-fade 0.3s ease-out both;
 }
 
+/* Modal dialog backdrop */
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
 @keyframes confetti-fall {
   0% {
     transform: translateY(-10vh) rotate(0deg);
