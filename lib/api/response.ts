@@ -4,7 +4,7 @@ import { type ApiTrace, logApiTrace } from '@/lib/api/observability';
 const API_VERSION = '1.0';
 const ALLOWED_ORIGIN = process.env.API_ALLOWED_ORIGIN || '*';
 
-const STANDARD_HEADERS = {
+const STANDARD_HEADERS: Record<string, string> = {
   'Content-Type': 'application/json',
   'X-API-Version': API_VERSION,
   'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
@@ -47,13 +47,18 @@ export function apiResponse(
     logApiTrace(trace, status, isValid);
   }
 
+  const headers = new Headers(STANDARD_HEADERS);
+  for (const [key, value] of Object.entries(traceHeaders)) {
+    headers.set(key, value);
+  }
+  const extras = new Headers(extraHeaders);
+  extras.forEach((value, key) => {
+    headers.set(key, value);
+  });
+
   return NextResponse.json(body, {
     status,
-    headers: {
-      ...STANDARD_HEADERS,
-      ...traceHeaders,
-      ...extraHeaders,
-    },
+    headers,
   });
 }
 
